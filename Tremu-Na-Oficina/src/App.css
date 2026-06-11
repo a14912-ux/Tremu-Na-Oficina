@@ -1,0 +1,97 @@
+:root {
+  --bg: #fdf6ec;
+  --primary: #2f6f5e;
+  --accent: #ffb703;
+  --danger: #e85d4c;
+  --ok: #43a047;
+  --text: #2b2b2b;
+  --card: #ffffff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #fdf6ec 0%, #f1e6d2 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#root { display: flex; justify-content: center; }
+
+.app {
+  width: 100%;
+  max-width: 540px;
+  padding: 20px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header h1 { margin: 8px 0 4px; color: var(--primary); letter-spacing: 1px; }
+.subtitle { font-size: 0.95rem; color: #555; margin-bottom: 16px; }
+
+.stats { display: flex; gap: 16px; margin-bottom: 18px; }
+.stat {
+  background: var(--card); border-radius: 12px; padding: 10px 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); display: flex; flex-direction: column;
+}
+.stat-value { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+.stat-label { font-size: 0.75rem; color: #888; text-transform: uppercase; }
+
+.word-display { display: flex; gap: 10px; margin-bottom: 18px; }
+.letter-box {
+  width: 52px; height: 60px; border: 3px solid var(--primary); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; font-weight: 700; background: var(--card); transition: all 0.25s ease;
+}
+.letter-box.active { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,183,3,0.35); }
+.letter-box.revealed { background: var(--primary); color: white; }
+
+.main-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; width: 100%; margin-bottom: 18px; }
+.sign-area, .webcam-panel {
+  background: var(--card); border-radius: 18px; padding: 16px 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08); flex: 1 1 240px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.sign-instruction { margin: 0 0 10px; font-weight: 600; color: var(--primary); }
+.sign-card { display: flex; justify-content: center; }
+.target-letter { margin-top: 8px; font-size: 1.1rem; }
+
+.webcam-frame {
+  position: relative; width: 100%; aspect-ratio: 4/3;
+  background: #1a1a1a; border-radius: 12px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.webcam-video-hidden { display: none; }
+.webcam-canvas { width: 100%; height: 100%; object-fit: cover; }
+.webcam-placeholder { position: absolute; color: #ccc; font-size: 0.9rem; padding: 12px; text-align: center; }
+.webcam-error { color: #ff8a80; }
+
+.match-indicator {
+  margin-top: 10px; font-size: 0.9rem; font-weight: 600; min-height: 20px; color: #888;
+}
+.match-indicator.match-ok { color: var(--ok); }
+
+.webcam-controls { margin-top: 10px; }
+.cam-btn {
+  background: var(--primary); color: white; border: none; border-radius: 999px;
+  padding: 8px 18px; font-weight: 600; cursor: pointer; font-size: 0.9rem;
+}
+.cam-btn:hover { background: #1f4f43; }
+.cam-btn-stop { background: var(--danger); }
+.cam-btn-stop:hover { background: #c0392b; }
+
+.feedback { margin-top: 16px; font-weight: 600; font-size: 1.05rem; }
+.feedback.ok { color: var(--ok); }
+.feedback.fail { color: var(--danger); }
+
+.footer { margin-top: 28px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.reset-btn {
+  background: var(--accent); border: none; border-radius: 999px; padding: 10px 24px;
+  font-weight: 700; font-size: 0.95rem; cursor: pointer; color: #3a2a00;
+}
+.reset-btn:hover { background: #ffa500; }
+.school { font-size: 0.85rem; color: #888; }
